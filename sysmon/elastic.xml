@@ -1,0 +1,102 @@
+<Sysmon schemaversion="4.60">
+  <HashAlgorithms>*</HashAlgorithms>
+  <DnsLookup>True</DnsLookup>
+  <ArchiveDirectory>Sysmon</ArchiveDirectory>
+  <EventFiltering>
+    <!-- Event ID 1 == Process Creation-->
+    <RuleGroup groupRelation="or">
+      <ProcessCreate onmatch="exclude">
+      </ProcessCreate>
+    </RuleGroup>
+    <!-- Event ID 2 == File Creation Time - -->
+    <RuleGroup groupRelation="or">
+      <FileCreateTime onmatch="exclude">
+      </FileCreateTime>
+    </RuleGroup>
+    <!-- Event ID 3 == Network Connection -->
+    <RuleGroup groupRelation="or">
+      <NetworkConnect onmatch="exclude">
+      </NetworkConnect>
+    </RuleGroup>
+    <!-- Event ID 5 == Process Terminated -->
+    <RuleGroup groupRelation="or">
+      <ProcessTerminate onmatch="exclude" />
+    </RuleGroup>
+    <!-- Event ID 6 == Driver Loaded -->
+    <RuleGroup groupRelation="or">
+      <DriverLoad onmatch="exclude">
+      </DriverLoad>
+    </RuleGroup>
+    <!-- Event ID 7 == Image Loaded -->
+    <RuleGroup groupRelation="or">
+      <ImageLoad onmatch="exclude">
+      </ImageLoad>
+    </RuleGroup>
+    <!-- Event ID 8 == CreateRemoteThread -->
+    <RuleGroup groupRelation="or">
+      <!--Default to log all and exclude a few common processes-->
+      <CreateRemoteThread onmatch="exclude">
+      </CreateRemoteThread>
+    </RuleGroup>
+    <!-- Event ID 9 == RawAccessRead -->
+    <RuleGroup groupRelation="or">
+      <RawAccessRead onmatch="exclude" />
+    </RuleGroup>
+    <!-- Event ID 10 == ProcessAccess -->
+    <RuleGroup groupRelation="or">
+      <ProcessAccess onmatch="exclude">
+      </ProcessAccess>
+    </RuleGroup>
+    <!-- Event ID 11 == FileCreate -->
+    <RuleGroup groupRelation="or">
+      <FileCreate onmatch="exclude">
+      </FileCreate>
+    </RuleGroup>
+    <!-- Event ID 12,13,14 == RegObject added/deleted, RegValue Set, RegObject Renamed-->
+    <RuleGroup groupRelation="or">
+      <RegistryEvent onmatch="exclude">
+      </RegistryEvent>
+    </RuleGroup>
+    <!-- Event ID 15 == FileStream Created - Excludes -->
+    <RuleGroup groupRelation="or">
+      <FileCreateStreamHash onmatch="exclude" />
+    </RuleGroup>
+    <!-- Event ID 17,18 == PipeEvent. Log Named pipe created & Named pipe connected-->
+    <RuleGroup groupRelation="or">
+      <PipeEvent onmatch="exclude">
+      </PipeEvent>
+    </RuleGroup>
+    <!-- Event ID 19,20,21, == WmiEvent. Log all WmiEventFilter, WmiEventConsumer, WmiEventConsumerToFilter activity-->
+    <RuleGroup groupRelation="or">
+      <WmiEvent onmatch="exclude" />
+    </RuleGroup>
+    <!-- Event ID 22 == DNS Queries and their results-->
+    <RuleGroup groupRelation="or">
+      <DnsQuery onmatch="exclude">
+      </DnsQuery>
+    </RuleGroup>
+    <!-- Event ID 23 == File Delete and overwrite events which saves a copy to the archivedir -->
+    <RuleGroup groupRelation="or">
+      <FileDelete onmatch="exclude" />
+    </RuleGroup>
+    <!-- Event ID 23 == File Delete and overwrite events -->
+    <RuleGroup groupRelation="or">
+      <FileDelete onmatch="exclude">
+      </FileDelete>
+    </RuleGroup>
+    <!-- Event ID 24 == Clipboard change events-->
+    <RuleGroup groupRelation="or">
+      <ClipboardChange onmatch="exclude" />
+    </RuleGroup>
+    <!-- Event ID 25 == Process tampering events -->
+    <RuleGroup groupRelation="or">
+      <ProcessTampering onmatch="exclude">
+      </ProcessTampering>
+    </RuleGroup>
+    <!-- Event ID 26 == File Delete and overwrite events-->
+    <RuleGroup groupRelation="or">
+      <FileDeleteDetected onmatch="exclude">
+      </FileDeleteDetected>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>
