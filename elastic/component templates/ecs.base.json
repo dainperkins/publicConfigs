@@ -1,0 +1,22 @@
+PUT /_component_template/ecs.base
+{
+    "template": {
+        "mappings": {
+            "dynamic_templates": [],
+            "properties": {
+                "@timestamp": {
+                    "type": "date"
+                },
+                "ecs": {
+                    "type": "object",
+                    "properties": {
+                        "version": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

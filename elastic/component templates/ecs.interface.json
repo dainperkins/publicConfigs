@@ -1,0 +1,167 @@
+PUT /_component_template/ecs.interface
+{
+    "template": {
+        "settings": {},
+        "mappings": {
+            "_source": {
+                "enabled": false
+            },
+            "properties": {
+                "interface": {
+                    "properties": {
+                        "description": {
+                            "type": "text"
+                        },
+                        "index": {
+                            "ignore_above": 256,
+                            "type": "keyword"
+                        },
+                        "type": {
+                            "ignore_above": 256,
+                            "type": "keyword"
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "mac": {
+                            "ignore_above": 256,
+                            "type": "keyword"
+                        },
+                        "packets": {
+                            "properties": {
+                                "broadcast": {
+                                    "properties": {
+                                        "in": {
+                                            "type": "long"
+                                        },
+                                        "out": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "non-unicast": {
+                                    "properties": {
+                                        "in": {
+                                            "type": "long"
+                                        },
+                                        "out": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "unknown_protocols": {
+                                    "properties": {
+                                        "in": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "in": {
+                                    "type": "long"
+                                },
+                                "unicast": {
+                                    "properties": {
+                                        "in": {
+                                            "type": "long"
+                                        },
+                                        "out": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "multicast": {
+                                    "properties": {
+                                        "in": {
+                                            "type": "long"
+                                        },
+                                        "out": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "out": {
+                                    "type": "long"
+                                }
+                            }
+                        },
+                        "speed": {
+                            "type": "long"
+                        },
+                        "mtu": {
+                            "type": "long"
+                        },
+                        "promiscuous": {
+                            "type": "boolean"
+                        },
+                        "bytes": {
+                            "properties": {
+                                "in": {
+                                    "type": "long"
+                                },
+                                "out": {
+                                    "type": "long"
+                                }
+                            }
+                        },
+                        "discards": {
+                            "properties": {
+                                "in": {
+                                    "type": "long"
+                                },
+                                "out": {
+                                    "type": "long"
+                                }
+                            }
+                        },
+                        "name": {
+                            "ignore_above": 256,
+                            "type": "keyword"
+                        },
+                        "alias": {
+                            "ignore_above": 256,
+                            "type": "keyword"
+                        },
+                        "power": {
+                            "properties": {
+                                "current": {
+                                    "type": "long"
+                                },
+                                "max": {
+                                    "type": "long"
+                                },
+                                "ieee": {
+                                    "type": "boolean"
+                                },
+                                "enabled": {
+                                    "type": "boolean"
+                                },
+                                "allocated": {
+                                    "type": "long"
+                                }
+                            }
+                        },
+                        "queue_length_out": {
+                            "type": "long"
+                        },
+                        "up": {
+                            "type": "boolean"
+                        },
+                        "errors": {
+                            "properties": {
+                                "in": {
+                                    "type": "long"
+                                },
+                                "out": {
+                                    "type": "long"
+                                }
+                            }
+                        },
+                        "last_changed": {
+                            "type": "long"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

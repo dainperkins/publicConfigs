@@ -1,0 +1,261 @@
+PUT /_component_template/ecs.host
+{
+    "template": {
+        "mappings": {
+            "dynamic_templates": [],
+            "properties": {
+                "host": {
+                    "type": "object",
+                    "properties": {
+                        "os": {
+                            "type": "object",
+                            "properties": {
+                                "kernel": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword",
+                                    "fields": {
+                                        "text": {
+                                            "norms": false,
+                                            "type": "text"
+                                        }
+                                    }
+                                },
+                                "family": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "type": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "version": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "platform": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "full": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword",
+                                    "fields": {
+                                        "text": {
+                                            "norms": false,
+                                            "type": "text"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "ip": {
+                            "type": "ip"
+                        },
+                        "cpu": {
+                            "type": "object",
+                            "properties": {
+                                "usage": {
+                                    "scaling_factor": 1000,
+                                    "type": "scaled_float"
+                                }
+                            }
+                        },
+                        "type": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        },
+                        "mac": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        },
+                        "network": {
+                            "type": "object",
+                            "properties": {
+                                "ingress": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bytes": {
+                                            "type": "long"
+                                        },
+                                        "packets": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "egress": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bytes": {
+                                            "type": "long"
+                                        },
+                                        "packets": {
+                                            "type": "long"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "uptime": {
+                            "type": "long"
+                        },
+                        "geo": {
+                            "type": "object",
+                            "properties": {
+                                "continent_name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "region_iso_code": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "city_name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "country_iso_code": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "timezone": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "country_name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "continent_code": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "location": {
+                                    "type": "geo_point"
+                                },
+                                "region_name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "postal_code": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "disk": {
+                            "type": "object",
+                            "properties": {
+                                "read": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bytes": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "write": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bytes": {
+                                            "type": "long"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "hostname": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        },
+                        "domain": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        },
+                        "name": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        },
+                        "id": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        },
+                        "user": {
+                            "type": "object",
+                            "properties": {
+                                "full_name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword",
+                                    "fields": {
+                                        "text": {
+                                            "norms": false,
+                                            "type": "text"
+                                        }
+                                    }
+                                },
+                                "domain": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "roles": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "name": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword",
+                                    "fields": {
+                                        "text": {
+                                            "norms": false,
+                                            "type": "text"
+                                        }
+                                    }
+                                },
+                                "id": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "email": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "hash": {
+                                    "ignore_above": 1024,
+                                    "type": "keyword"
+                                },
+                                "group": {
+                                    "type": "object",
+                                    "properties": {
+                                        "domain": {
+                                            "ignore_above": 1024,
+                                            "type": "keyword"
+                                        },
+                                        "name": {
+                                            "ignore_above": 1024,
+                                            "type": "keyword"
+                                        },
+                                        "id": {
+                                            "ignore_above": 1024,
+                                            "type": "keyword"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "architecture": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
